@@ -15,6 +15,7 @@ public abstract class LandingPage extends BaseFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	//backGroundImage="assets\\t2.jpg";
 
 	JPanel buttonsHolder, contentHolder;
 
@@ -53,35 +54,36 @@ public abstract class LandingPage extends BaseFrame {
         this.currentPerson=currentPerson;
 
         //initialise buttons
-
-
-        JLabel home = new JLabel("Home");
-        home.setBounds(280,50,150,40);
-        home.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 40));
-        home.setForeground (new Color(0,0,153));
+        
+        JLabel home = new JLabel("Welcome "+currentPerson.getFullName().split(" ")[0]);
+        home.setBounds(210,50,500,40);
+        home.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 35));
+        home.setForeground (new Color(255, 255, 255));
         
        //buttonsHolder.add(home);
 
         editProfile=new JButton("Edit Profile");
-        editProfile.setBounds(100,140,200,70);
-        editProfile.setBackground(Color.green);
-        editProfile.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        editProfile.setBounds(130,200,200,70);
+        editProfile.setBackground(new Color(43, 100, 205));
+        editProfile.setForeground(new Color(255, 255, 255));
+        editProfile.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
         editProfile.addMouseListener(new MouseAdapter() {
             Color color = editProfile.getForeground();
             public void mouseEntered(MouseEvent me) {
                color = editProfile.getForeground();
-               editProfile.setBackground(Color.orange); // change the color to green when mouse over a button
+               editProfile.setBackground(new Color(103, 180, 255)); // change the color to green when mouse over a button
             }
             public void mouseExited(MouseEvent me) {
-            	editProfile.setBackground(Color.green);
+            	editProfile.setBackground(new Color(43, 100, 205));
             }
          });
 
 
         logout=new JButton("Logout");
-        logout.setBounds(100,450,100,35);
-        logout.setBackground(new java.awt.Color(255, 153, 0));
-        logout.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 12));
+        logout.setBounds(130,450,100,35);
+        logout.setBackground(new java.awt.Color(144, 78, 78));
+        logout.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 14));
+        logout.setForeground(new Color(255,255,255));
 
 
 
@@ -109,7 +111,7 @@ public abstract class LandingPage extends BaseFrame {
         buttonsHolder.setBounds(150,100,720,520);
         buttonsHolder.setOpaque(true);
         buttonsHolder.setFocusable(true);
-        buttonsHolder.setBackground(new java.awt.Color(204, 255, 255,100));
+        buttonsHolder.setBackground(new java.awt.Color(204, 255, 255,0));
 
 
 

@@ -24,9 +24,9 @@ public  class AdminLogin extends UserLogin{
 	protected void initAdminLabel()
     {
     	adminLabel = new JLabel("Admin Login");
-    	adminLabel.setBounds(475,60,200,40);
+    	adminLabel.setBounds(350,170,200,40);
     	adminLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 25));
-    	adminLabel.setForeground (new Color(0,0,153));
+    	adminLabel.setForeground (new Color(0,0,0));
         super.basePanel.add(adminLabel);
     }
 	
@@ -43,31 +43,22 @@ public  class AdminLogin extends UserLogin{
   protected void initLoginLabel()
     {
         loginLabel = new JLabel("Admin Id:");
-        loginLabel.setBounds(350,120,100,30);
+        loginLabel.setBounds(350,220,150,40);
         loginLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
-    	loginLabel.setForeground (new Color(0,0,153));
+    	loginLabel.setForeground (new Color(0,0,0));
         super.basePanel.add(loginLabel);
     }
 
 
    private void initUserLoginButton()
     {
-        userLoginButton = new JButton("Login as User");
-        userLoginButton.setBounds(550,500,200,35);
+        userLoginButton = new JButton("User Login");
+        userLoginButton.setBounds(700,500,150,35);
         userLoginButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 12));
         super.basePanel.add(userLoginButton);
         userLoginButton.addActionListener(this);
-        userLoginButton.setBackground(Color.green);
-        userLoginButton.addMouseListener(new MouseAdapter() {
-            Color color = userLoginButton.getForeground();
-            public void mouseEntered(MouseEvent me) {
-               color = userLoginButton.getForeground();
-               userLoginButton.setBackground(Color.orange); // change the color to green when mouse over a button
-            }
-            public void mouseExited(MouseEvent me) {
-            	userLoginButton.setBackground(Color.green);
-            }
-         });
+        userLoginButton.setBackground(new Color(255, 255, 153));
+      
     }
     AdminLogin()
     {

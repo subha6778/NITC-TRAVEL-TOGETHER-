@@ -8,6 +8,9 @@ import DatabaseObjectWrapper.Admin;
 import DatabaseObjectWrapper.Person;
 
 import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,7 +26,7 @@ public class EditProfile extends SignupForm   {
 
 
 	LandingPage lastPage;
-
+	JLabel signNam;
 
     Person currentPerson;
 
@@ -32,10 +35,10 @@ public class EditProfile extends SignupForm   {
     {
 
         super(lastPage);
-        super.basePanel.remove(signName);
-        this.currentPerson=currentPerson;
         
-
+        this.currentPerson=currentPerson;
+        super.basePanel.remove(signName);
+        initedit();
         this.lastPage=lastPage;
 
         //to show current user details in textboxes
@@ -60,7 +63,7 @@ public class EditProfile extends SignupForm   {
        enterAddress.setText(currentPerson.getAddress());
        enterGender.setText(currentPerson.getGender());
        entermobile_no.setText(currentPerson.getmobile_no());
-       password.setText("New Password");
+      // password.setText("Password");
 
 
        //using the button in signup form to submit new details to database
@@ -72,6 +75,15 @@ public class EditProfile extends SignupForm   {
     protected void initTitle()
     {
         this.setTitle("Edit Profile");
+    }
+
+    private void initedit()
+    {
+        signNam=new JLabel("Update Profile");
+        signNam.setBounds(100, 100,300, 40);
+        signNam.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
+        signNam.setForeground (new Color(255,255,255));
+        super.basePanel.add(signNam);
     }
 
 

@@ -20,7 +20,7 @@ import java.sql.SQLException;
 //create GUI.LoginForm class to create login form
 //class extends JFrame to create a window where our component add  
 //class implements ActionListener to perform an action on button click  
-public class UserLogin extends BaseFrame
+public class UserLogin extends BaseFrame1
 {
     /**
 	 * 
@@ -36,33 +36,35 @@ public class UserLogin extends BaseFrame
 
 
     JCheckBox showPassword;
-
+    
+    
+    
 
     protected void initHomeLabel()
     {
     	homeLabel = new JLabel("Welcome to NITC_Travel_Together");
-    	homeLabel.setBounds(100,10,500,40);
-    	homeLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 25));
-    	homeLabel.setForeground (new Color(0,0,153));
+    	homeLabel.setBounds(90,60,800,45);
+    	homeLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 40));
+    	homeLabel.setForeground (new Color(231,184,141));
         super.basePanel.add(homeLabel);
     }
     
     
     protected void initUserLabel()
     {
-    	userLabel = new JLabel("User Login");
-    	userLabel.setBounds(475,60,200,40);
+    	userLabel = new JLabel("Student Login");
+    	userLabel.setBounds(350,170,200,40);
     	userLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 25));
-    	userLabel.setForeground (new Color(0,0,153));
+    	userLabel.setForeground (new Color(0,0,0));
         super.basePanel.add(userLabel);
     }
     
     protected void initNewLabel()
     {
     	newLabel = new JLabel("Not a member?");
-    	newLabel.setBounds(370,350,200,40);
+    	newLabel.setBounds(470,415,200,40);
     	newLabel.setFont(new Font(Font.SANS_SERIF,  Font.ITALIC, 15));
-    	newLabel.setForeground (new Color(0,0,153));
+    	newLabel.setForeground (new Color(0,0,0));
         super.basePanel.add(newLabel);
     }
     
@@ -73,18 +75,18 @@ public class UserLogin extends BaseFrame
   protected void initLoginLabel()
    {
        loginLabel = new JLabel("Username :");
-       loginLabel.setBounds(350,120,150,40);
+       loginLabel.setBounds(350,220,150,40);
        loginLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
-       loginLabel.setForeground (new Color(0,0,153));
+       loginLabel.setForeground (new Color(0,0,0));
        super.basePanel.add(loginLabel);
    }
 
   private void initPasswordLabel()
    {
        passLabel = new JLabel("Password :");
-       passLabel.setBounds(350,170,150,40);
+       passLabel.setBounds(350,270,150,40);
        passLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
-       passLabel.setForeground (new Color(0,0,153));
+       passLabel.setForeground (new Color(0,0,0));
        super.basePanel.add(passLabel);
    }
 
@@ -95,9 +97,9 @@ public class UserLogin extends BaseFrame
        //submit.setForeground(Color.yellow);
    
        
-       submit.setBounds(350,270,400,40);
-       submit.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
-       submit.setBackground(Color.green);
+       submit.setBounds(480,350,200,40);
+       submit.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
+       submit.setBackground(new Color(173,134,106));
        super.basePanel.add(submit);
        submit.addActionListener(this);
        
@@ -105,10 +107,10 @@ public class UserLogin extends BaseFrame
            Color color = submit.getForeground();
            public void mouseEntered(MouseEvent me) {
               color = submit.getForeground();
-              submit.setBackground(Color.orange); // change the color to green when mouse over a button
+              submit.setBackground(new Color(143,104,86)); // change the color to green when mouse over a button
            }
            public void mouseExited(MouseEvent me) {
-        	   submit.setBackground(Color.green);
+        	   submit.setBackground(new Color(173,134,106));
            }
         });
    }
@@ -116,7 +118,7 @@ public class UserLogin extends BaseFrame
   private void initSignupButton()
    {
        signup=new JButton("Sign Up");
-       signup.setBounds(490,350,260,30);
+       signup.setBounds(580,420,100,30);
        signup.setBackground(new Color(255, 255, 153));
        signup.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 12));
        //signup.setForeground(Color.yellow);
@@ -126,7 +128,7 @@ public class UserLogin extends BaseFrame
            Color color = signup.getForeground();
            public void mouseEntered(MouseEvent me) {
               color = signup.getForeground();
-              signup.setBackground(Color.green); // change the color to green when mouse over a button
+              signup.setBackground(new Color(225, 225, 123)); // change the color to green when mouse over a button
            }
            public void mouseExited(MouseEvent me) {
         	   signup.setBackground(new Color(255, 255, 153));
@@ -136,35 +138,26 @@ public class UserLogin extends BaseFrame
 
   private void initadminLoginButton()
    {
-       adminLogin=new JButton("Login as Admin");
-       adminLogin.setBounds(550,500,200,35);
-       adminLogin.setBackground(Color.green);
+       adminLogin=new JButton("Admin Login");
+       adminLogin.setBounds(700,500,150,35);
+       adminLogin.setBackground(new Color(255, 255, 153));
        adminLogin.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 12));
        super.basePanel.add(adminLogin);
        adminLogin.addActionListener(this);
-       adminLogin.addMouseListener(new MouseAdapter() {
-           Color color = adminLogin.getForeground();
-           public void mouseEntered(MouseEvent me) {
-              color = adminLogin.getForeground();
-              adminLogin.setBackground(Color.orange); // change the color to green when mouse over a button
-           }
-           public void mouseExited(MouseEvent me) {
-        	   adminLogin.setBackground(Color.green);
-           }
-        });
+      
    }
 
   private void initLoginTextBox()
    {
        loginIdTextBox = new JTextField(15);    //set length of the text
-       loginIdTextBox.setBounds(550,120,200,30);
+       loginIdTextBox.setBounds(480,230,200,30);
        super.basePanel.add(loginIdTextBox);
    }
 
   private void initPasswordTextBox()
    {
        passwordTextBox = new JPasswordField(15);    //set length for the password
-       passwordTextBox.setBounds(550,170,200,30);
+       passwordTextBox.setBounds(480,280,200,30);
        super.basePanel.add(passwordTextBox);
    }
 
@@ -172,7 +165,7 @@ public class UserLogin extends BaseFrame
   back = new JButton();
   back.setBackground(new java.awt.Color(255, 153, 0));
   back.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 12));
-  back.setBounds(350,500,70,35);
+  back.setBounds(350,600,70,35);
   back.setText("<");
   //super.basePanel.add(back);
   back.addActionListener(new java.awt.event.ActionListener() {
@@ -217,11 +210,11 @@ public class UserLogin extends BaseFrame
         initSignupButton();
         initadminLoginButton();
         setTitle();
-
+   
         showPassword =new JCheckBox("Show Password");
-        showPassword.setBounds(550,190,200,50);
+        showPassword.setBounds(480,295,200,50);
         showPassword.addActionListener(this);
-        showPassword.setForeground(new Color(0,0,153));
+        showPassword.setForeground(new Color(0,0,0));
         basePanel.add(showPassword);
 
 
@@ -252,15 +245,18 @@ public class UserLogin extends BaseFrame
             }
         }
 
-        else if(e.getSource().equals(signup))
+        if(e.getSource().equals(signup))
         {
             this.dispose();
             new SignupForm(this);
 
-        } else if (e.getSource().equals(adminLogin))
+        } 
+        if (e.getSource().equals(adminLogin))
         {
+        	
+        	this.dispose();
             new AdminLogin();
-            this.dispose();
+            
         }
 
         if(e.getSource().equals(showPassword))
@@ -272,6 +268,8 @@ public class UserLogin extends BaseFrame
                 passwordTextBox.setEchoChar('*');
             }
         }
+       
+        
     }
     
     

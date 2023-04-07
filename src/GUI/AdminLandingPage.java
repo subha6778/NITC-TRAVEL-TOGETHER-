@@ -5,6 +5,7 @@ import DatabaseObjectWrapper.Person;
 import javax.swing.*;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -26,20 +27,22 @@ public class AdminLandingPage extends LandingPage  {
 
         ViewDueGroupsButton = new JButton("View Due Groups");
         //ViewDueGroupsButton=new JButton("<html>" + "View Due" + "<br>" + "Groups" + "</html>");
-        ViewDueGroupsButton.setBounds(350,150,200,50);;
+        ViewDueGroupsButton.setBounds(430,200,200,70);
+        ViewDueGroupsButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
+        ViewDueGroupsButton.setForeground(new Color(255, 255, 255));
         ViewDueGroupsButton.addActionListener(this);
         buttonsHolder.add(ViewDueGroupsButton);
         
         
-        ViewDueGroupsButton.setBackground(Color.green);
+        ViewDueGroupsButton.setBackground(new Color(43, 100, 205));
         ViewDueGroupsButton.addMouseListener(new MouseAdapter() {
             Color color = ViewDueGroupsButton.getForeground();
             public void mouseEntered(MouseEvent me) {
                color = ViewDueGroupsButton.getForeground();
-               ViewDueGroupsButton.setBackground(Color.orange); // change the color to green when mouse over a button
+               ViewDueGroupsButton.setBackground(new Color(103, 180, 255)); // change the color to green when mouse over a button
             }
             public void mouseExited(MouseEvent me) {
-            	ViewDueGroupsButton.setBackground(Color.green);
+            	ViewDueGroupsButton.setBackground(new Color(43, 100, 205));
             }
          });
 /*

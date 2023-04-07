@@ -11,7 +11,7 @@ public class SplitBillForm extends ViewBill {
     private JComboBox<String> billCheckbox;
     private JButton addPaidButton,addTotalAmountButton;
 
-    private JLabel paidLabel,totalAmountLabel;
+    private JLabel name, paidLabel,totalAmountLabel;
 
     private JTextField paidTextField,totalAmountTextField;
     String BillName=null;
@@ -48,31 +48,41 @@ public class SplitBillForm extends ViewBill {
 
     private void setupLabelTextFieldAndButton()
     {
+    	name=new JLabel("Split Bill Page");
+    	name.setBounds(250,20,300,40);
+    	name.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
+    	name.setForeground(new Color(255,255,255));
+        basePanel.add(name);
+    	
     	paidLabel=new JLabel("Paid amount ");
-    	paidLabel.setBounds(195,450,120,40);
+    	paidLabel.setBounds(750,215,120,40);
+    	paidLabel.setForeground(new Color(255,255,255));
+    	paidLabel.setFont(new Font(Font.SANS_SERIF,  Font.PLAIN, 16));
         basePanel.add(paidLabel);
 
         paidTextField=new JTextField();
-        paidTextField.setBounds(300,450,80,40);
+        paidTextField.setBounds(850,220,200,30);
         basePanel.add(paidTextField);
 
         addPaidButton=new JButton("Add");
-        //addPaidButton.setBounds(260,500,80,40);
-        addPaidButton.setBounds(415,450,80,40);
+        addPaidButton.setBounds(920,260,130,30);
+        addPaidButton.setBackground(Color.cyan);
         addPaidButton.addActionListener(this);
         basePanel.add(addPaidButton);
         
         totalAmountLabel=new JLabel("Total amount ");
-        totalAmountLabel.setBounds(195,490,120,40);
+        totalAmountLabel.setBounds(750,320,120,30);
+        totalAmountLabel.setForeground(new Color(255,255,255));
+        totalAmountLabel.setFont(new Font(Font.SANS_SERIF,  Font.PLAIN, 16));
         basePanel.add(totalAmountLabel);
 
         totalAmountTextField=new JTextField(Integer.toString(totalamount));
-        totalAmountTextField.setBounds(300,490,80,40);
+        totalAmountTextField.setBounds(850,320,200,30);
         basePanel.add(totalAmountTextField);
         
         addTotalAmountButton=new JButton("Submit");
-        //addPaidButton.setBounds(260,500,80,40);
-        addTotalAmountButton.setBounds(415,490,80,40);
+        addTotalAmountButton.setBounds(920,360,130,30);
+        addTotalAmountButton.setBackground(Color.cyan);
         addTotalAmountButton.addActionListener(this);
         basePanel.add(addTotalAmountButton);
         
@@ -86,6 +96,7 @@ public class SplitBillForm extends ViewBill {
         scrollPane = JTable.createScrollPaneForTable( table);
         scrollPane.setBounds(new Rectangle(0, 0, 600, 400));
         scrollPane.setOpaque(false);
+        scrollPane.setBounds(20,120,700, 500);
         scrollPane.getViewport().setOpaque(false);
         basePanel.add( scrollPane, null );
     }
@@ -98,14 +109,14 @@ public class SplitBillForm extends ViewBill {
         for(int i=0;i<billList.size();i++)
         {
             bills[i]=billList.get(i).getMemberName();
-            System.out.print("Namee :"+bills[i]);
         }
 
         if(bills.length==0)
             bills= new String[]{"No records"};
 
         billCheckbox=new JComboBox<>(bills);
-        billCheckbox.setBounds(100,400,400,40);
+        billCheckbox.setBounds(750,120,300,40);
+        billCheckbox.setBackground(Color.cyan);
         basePanel.add(billCheckbox);
 
     }

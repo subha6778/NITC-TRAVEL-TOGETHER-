@@ -32,39 +32,41 @@ public class UserLandingPage extends LandingPage  {
 
 
 
-        ViewGroupsButton =new JButton("<html>" + "View Existing" + "<br>"+ "Groups" + "</html>");
-        ViewGroupsButton.setBounds(100,270,200,70);
-        ViewGroupsButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        ViewGroupsButton =new JButton("<html>" + "View Available" + "<br>"+ "Groups" + "</html>");
+        ViewGroupsButton.setBounds(130,330,200,70);
+        ViewGroupsButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
         ViewGroupsButton.addActionListener(this);
         ViewGroupsButton.setRolloverEnabled(true);
+        ViewGroupsButton.setForeground(new Color(255, 255, 255));
         buttonsHolder.add(ViewGroupsButton);
-        ViewGroupsButton.setBackground(Color.green);
+        ViewGroupsButton.setBackground(new Color(43, 100, 205));
         ViewGroupsButton.addMouseListener(new MouseAdapter() {
             Color color = ViewGroupsButton.getForeground();
             public void mouseEntered(MouseEvent me) {
                color = ViewGroupsButton.getForeground();
-               ViewGroupsButton.setBackground(Color.orange); // change the color to green when mouse over a button
+               ViewGroupsButton.setBackground(new Color(103, 180, 255)); // change the color to green when mouse over a button
             }
             public void mouseExited(MouseEvent me) {
-            	ViewGroupsButton.setBackground(Color.green);
+            	ViewGroupsButton.setBackground(new Color(43, 100, 205));
             }
          });
         
         ViewMyGroupButton =new JButton("<html>" + "View My" + "<br>"+ "Group" + "</html>");
-        ViewMyGroupButton.setBounds(400,140,200,70);
-        ViewMyGroupButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        ViewMyGroupButton.setBounds(430,200,200,70);
+        ViewMyGroupButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
         ViewMyGroupButton.addActionListener(this);
         ViewMyGroupButton.setRolloverEnabled(true);
+        ViewMyGroupButton.setForeground(new Color(255, 255, 255));
         buttonsHolder.add(ViewMyGroupButton);
-        ViewMyGroupButton.setBackground(Color.green);
+        ViewMyGroupButton.setBackground(new Color(43, 100, 205));
         ViewMyGroupButton.addMouseListener(new MouseAdapter() {
             Color color = ViewMyGroupButton.getForeground();
             public void mouseEntered(MouseEvent me) {
                color = ViewMyGroupButton.getForeground();
-               ViewMyGroupButton.setBackground(Color.orange); // change the color to green when mouse over a button
+               ViewMyGroupButton.setBackground(new Color(103, 180, 255)); // change the color to green when mouse over a button
             }
             public void mouseExited(MouseEvent me) {
-            	ViewMyGroupButton.setBackground(Color.green);
+            	ViewMyGroupButton.setBackground(new Color(43, 100, 205));
             }
          });
         
@@ -75,21 +77,22 @@ public class UserLandingPage extends LandingPage  {
         
 
 
-        CreategroupBotton=new  JButton("<html>" + "Create" + "<br>" + "Groups" + "</html>");
-        CreategroupBotton.setBounds(400,270,200,70);
-        CreategroupBotton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        CreategroupBotton=new  JButton("<html>"+ "Create " + "Groups" + "</html>");
+        CreategroupBotton.setBounds(430,330,200,70);
+        CreategroupBotton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
         CreategroupBotton.addActionListener(this);
         CreategroupBotton.setRolloverEnabled(true);
+        CreategroupBotton.setForeground(new Color(255, 255, 255));
         buttonsHolder.add(CreategroupBotton);
-        CreategroupBotton.setBackground(Color.green);
+        CreategroupBotton.setBackground(new Color(43, 100, 205));
         CreategroupBotton.addMouseListener(new MouseAdapter() {
             Color color = CreategroupBotton.getForeground();
             public void mouseEntered(MouseEvent me) {
                color = CreategroupBotton.getForeground();
-               CreategroupBotton.setBackground(Color.orange); // change the color to green when mouse over a button
+               CreategroupBotton.setBackground(new Color(103, 180, 255)); // change the color to green when mouse over a button
             }
             public void mouseExited(MouseEvent me) {
-            	CreategroupBotton.setBackground(Color.green);
+            	CreategroupBotton.setBackground(new Color(43, 100, 205));
             }
          });
       

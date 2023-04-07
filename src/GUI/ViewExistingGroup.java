@@ -24,6 +24,7 @@ public class ViewExistingGroup extends BaseFrame
 
     JButton backButton;
     LandingPage lastPage;
+    JLabel name;
 
     List<Group> groupList;
     private JComboBox<String> groupCheckbox;
@@ -50,16 +51,32 @@ public class ViewExistingGroup extends BaseFrame
        setupTableAndPane();
       // setupPane();
        setupComboBox();
+       
+       name = new JLabel("Available Groups");
+       name.setBounds(250,30,300,40);
+       super.basePanel.add(name);
+       name.setForeground (new Color(255,255,255));
+       name.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
+       
+       
         backButton=new JButton("Back");
-        backButton.setBounds(100,600,80,40);
+        backButton.setBounds(800,590,200,40);
+        backButton.setBackground(new Color(255, 153, 0));
+        backButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
         backButton.addActionListener(new BackButtonListener(this,lastPage));
         basePanel.add(backButton);
+        
         joinButton=new JButton("Join");
-        joinButton.setBounds(100,500,80,40);
+        joinButton.setBounds(750,240,130,40);
+        joinButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
+        joinButton.setBackground(Color.cyan);
         joinButton.addActionListener(this);
         basePanel.add( joinButton);
+        
         openButton=new JButton("Open");
-        openButton.setBounds(100,550,80,40);
+        openButton.setBounds(920,240,130,40);
+        openButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
+        openButton.setBackground(Color.cyan);
         openButton.addActionListener(this);
         basePanel.add(openButton);
 
@@ -99,8 +116,8 @@ public class ViewExistingGroup extends BaseFrame
         table.setShowHorizontalLines( false );
         table.setRowSelectionAllowed( true );
         table.setColumnSelectionAllowed( true );
-        table.setFont(new Font(Font.SANS_SERIF,  Font.PLAIN, 12));
-        table.setForeground(new Color(255,0,0));
+        table.setFont(new Font(Font.SANS_SERIF,  Font.PLAIN, 16));
+        table.setForeground(new Color(255,255,255));
         table.setShowGrid(false); // sirs suggestion
 
 
@@ -110,10 +127,10 @@ public class ViewExistingGroup extends BaseFrame
     {
         //method is protected to allow AddCopies to change scrollpane height
         scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(new Rectangle(0, 0, 600, 500));
+        scrollPane.setBounds(new Rectangle(20, 50, 600, 500));
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
-        scrollPane.setBounds(10,0,700, 500);
+        scrollPane.setBounds(20,100,700, 500);
         basePanel.add( scrollPane, null );
     }
     private void setupComboBox()
@@ -131,11 +148,11 @@ public class ViewExistingGroup extends BaseFrame
         }
 
         groupCheckbox=new JComboBox<>(groups);
-        groupCheckbox.setBounds(260,500,300,40);
+        groupCheckbox.setBounds(750,170,300,40);
         basePanel.add(groupCheckbox);
         
         mealCheckbox=new JComboBox<>(mealoptions);
-        mealCheckbox.setBounds(260,550,300,40);
+        mealCheckbox.setBounds(750,100,300,40);
         basePanel.add(mealCheckbox);
 
     }

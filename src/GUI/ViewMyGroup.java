@@ -24,6 +24,7 @@ public class ViewMyGroup extends BaseFrame
 
     JButton backButton;
     LandingPage lastPage;
+    JLabel name;
 
     List<Group> groupList;
     private JComboBox<String> groupCheckbox;
@@ -48,21 +49,38 @@ public class ViewMyGroup extends BaseFrame
        setupTableAndPane();
       // setupPane();
        setupComboBox();
+       
+       name = new JLabel("Active Groups");
+       name.setBounds(250,30,300,40);
+       super.basePanel.add(name);
+       name.setForeground (new Color(255,255,255));
+       name.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
+       
         backButton=new JButton("Back");
-        backButton.setBounds(260,550,80,40);
+        backButton.setBounds(800,590,150,40);
+        backButton.setBackground(new Color(255, 153, 0));
+        backButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
         backButton.addActionListener(new BackButtonListener(this,lastPage));
         basePanel.add(backButton);
+        
         optOutButton=new JButton("OptOut");
-        optOutButton.setBounds(100,500,80,40);
+        optOutButton.setBounds(750,170,130,40);
+        optOutButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
+        optOutButton.setBackground(Color.cyan);
         optOutButton.addActionListener(this);
         basePanel.add(optOutButton);
+        
         openButton=new JButton("Open");
-        openButton.setBounds(100,550,80,40);
+        openButton.setBounds(920,170,130,40);
+        openButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
+        openButton.setBackground(Color.cyan);
         openButton.addActionListener(this);
         basePanel.add(openButton);
         
         pastgroupButton=new JButton("Past Group");
-        pastgroupButton.setBounds(100,600,80,40);
+        pastgroupButton.setBounds(750,240,300,40);
+        pastgroupButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
+        pastgroupButton.setBackground(Color.cyan);
         pastgroupButton.addActionListener(this);
         basePanel.add(pastgroupButton);
 
@@ -98,11 +116,12 @@ public class ViewMyGroup extends BaseFrame
         ((DefaultTableCellRenderer)table.getDefaultRenderer(Object.class)).setOpaque(false);
 
         table.setRowHeight(40);
-
+        table.setFont(new Font(Font.SANS_SERIF,  Font.PLAIN, 16));
+        table.setForeground(new Color(255,255,255));
         table.setShowHorizontalLines( false );
-        table.setRowSelectionAllowed( true );
-        table.setColumnSelectionAllowed( true );
-        table.setShowGrid(true); 
+        table.setRowSelectionAllowed( false );
+        table.setColumnSelectionAllowed( false );
+        table.setShowGrid(false); 
 
 
     }
@@ -113,6 +132,7 @@ public class ViewMyGroup extends BaseFrame
         scrollPane = new JScrollPane(table);
         scrollPane.setBounds(new Rectangle(0, 0, 600, 500));
         scrollPane.setOpaque(false);
+        scrollPane.setBounds(20,100,700, 500);
         scrollPane.getViewport().setOpaque(false);
         basePanel.add( scrollPane, null );
     }
@@ -127,7 +147,7 @@ public class ViewMyGroup extends BaseFrame
             groups= new String[]{"No groups"};
 
         groupCheckbox=new JComboBox<>(groups);
-        groupCheckbox.setBounds(260,500,300,40);
+        groupCheckbox.setBounds(750,100,300,40);
         basePanel.add(groupCheckbox);
 
     }

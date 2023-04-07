@@ -48,14 +48,15 @@ public class ViewDueGroups extends BaseFrame
        setupTableAndPane();
     
        setupComboBox();
-        backButton=new JButton("Back");
-        backButton.setBounds(260,550,80,40);
+       	backButton=new JButton("Back");
+        backButton.setBounds(760,600,200,40);
         backButton.addActionListener(new BackButtonListener(this,lastPage));
+        backButton.setBackground(new Color(255, 153, 0));
         basePanel.add(backButton);
-        removeGroupButton=new JButton("Remove");
+        /*removeGroupButton=new JButton("Remove");
         removeGroupButton.setBounds(100,500,80,40);
         removeGroupButton.addActionListener(this);
-        basePanel.add(removeGroupButton);
+        basePanel.add(removeGroupButton);*/
         
 
     }
@@ -88,11 +89,12 @@ public class ViewDueGroups extends BaseFrame
         ((DefaultTableCellRenderer)table.getDefaultRenderer(Object.class)).setOpaque(false);
 
         table.setRowHeight(40);
-
+        table.setForeground(new Color(255,255,255));
+        table.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
         table.setShowHorizontalLines( false );
-        table.setRowSelectionAllowed( true );
-        table.setColumnSelectionAllowed( true );
-        table.setShowGrid(true); 
+        table.setRowSelectionAllowed( false );
+        table.setColumnSelectionAllowed( false );
+        table.setShowGrid(false); 
 
 
     }
@@ -101,7 +103,7 @@ public class ViewDueGroups extends BaseFrame
     {
        
         scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(new Rectangle(0, 0, 600, 500));
+        scrollPane.setBounds(new Rectangle(100, 50, 600, 500));
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
         basePanel.add( scrollPane, null );
@@ -118,7 +120,7 @@ public class ViewDueGroups extends BaseFrame
 
         groupCheckbox=new JComboBox<>(groups);
         groupCheckbox.setBounds(260,500,300,40);
-        basePanel.add(groupCheckbox);
+        //basePanel.add(groupCheckbox);
 
     }
 
@@ -146,7 +148,7 @@ public class ViewDueGroups extends BaseFrame
         	dataValues[i][0]=groupList.get(i).getGroupId();
             dataValues[i][1]=groupList.get(i).getGroupName();
             dataValues[i][2]=groupList.get(i).getArrivalDate();
-            System.out.print("sssss"+dataValues[i][2]);
+            //System.out.print("sssss"+dataValues[i][2]);
         }
 
         return dataValues;
@@ -181,17 +183,6 @@ public class ViewDueGroups extends BaseFrame
 
             this.dispose();
             this.setVisible(true);
-        }
-        
-        
-      
-        
-        
-    }
- 
-
-
-
-
-    
+        } 
+    } 
 }

@@ -27,9 +27,11 @@ public class SignupForm extends BaseFrame
     JButton back, submit;
 
     List<JLabel> visibleLabels;
+    List<JLabel> visibleLabels1;
     List<JTextField> textFields;
+    List<JTextField> textFields1;
 
-    List<JButton> buttons;
+    //List<JButton> buttons;
 
     JFrame lastPage;
 
@@ -40,67 +42,68 @@ public class SignupForm extends BaseFrame
     private void initSignName()
     {
         signName=new JLabel("Sign Up");
+        signName.setBounds(100, 100,200, 40);
         signName.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
-        signName.setForeground (new Color(0,0,153));
-        this.visibleLabels.add(signName);
+        signName.setForeground (new Color(255,255,255));
+        super.basePanel.add(signName);
     }
 
     private void initUsername()
     {
         username=new JLabel("Username :");
-        username.setForeground (new Color(0,0,153));
-        username.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
+        username.setForeground (new Color(255,255,255));
+        username.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         this.visibleLabels.add(username);
     }
 
     private void initPassword() {
         password=new JLabel("Password :");
-        password.setForeground (new Color(0,0,153));
-        password.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
+        password.setForeground (new Color(255,255,255));
+        password.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         this.visibleLabels.add(password);
     }
 
     private void initName() {
         name=new JLabel("Full Name :");
-        name.setForeground (new Color(0,0,153));
-        name.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
+        name.setForeground (new Color(255,255,255));
+        name.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         this.visibleLabels.add(name);
     }
 
     private void initEmail() {
         email=new JLabel("Email Address :");
-        email.setForeground (new Color(0,0,153));
-        email.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
+        email.setForeground (new Color(255,255,255));
+        email.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         this.visibleLabels.add(email);
 
     }
   private void initAge()
   {
        Age=new JLabel("Age :");
-       Age.setForeground (new Color(0,0,153));
-       Age.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
-       this.visibleLabels.add(Age);
+       Age.setForeground (new Color(255,255,255));
+       Age.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+       this.visibleLabels1.add(Age);
 
     }
     private void initAddress() {
         Address=new JLabel("Address :");
-        Address.setForeground (new Color(0,0,153));
-        Address.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
-        this.visibleLabels.add(Address);
+        Address.setForeground (new Color(255,255,255));
+        Address.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        this.visibleLabels1.add(Address);
 
     }
     private void initGender() {
         Gender=new JLabel("Gender :");
-        Gender.setForeground (new Color(0,0,153));
-        Gender.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
-        this.visibleLabels.add(Gender);
+        Gender.setForeground (new Color(255,255,255));
+        Gender.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        this.visibleLabels1.add(Gender);
 
     }
     private void initmobile_no() {
         mobile_no=new JLabel("Mobile No :");
-        mobile_no.setForeground (new Color(0,0,153));
-        mobile_no.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 18));
-        this.visibleLabels.add(mobile_no);
+        mobile_no.setForeground (new Color(255,255,255));
+        mobile_no.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        this.visibleLabels1.add(mobile_no);
 
     }
     
@@ -131,54 +134,46 @@ public class SignupForm extends BaseFrame
     }
     protected void initEnterAge() {
         this.enterAge=new JTextField(16);
-        this.textFields.add(enterAge);
+        this.textFields1.add(enterAge);
 
     }
     protected void initEnterAddress() 
     {
         this.enterAddress=new JTextField(17);
-        this.textFields.add(enterAddress);
+        this.textFields1.add(enterAddress);
 
     }
     protected void initEnterGender() 
     {
         this.enterGender=new JTextField(18);
-        this.textFields.add(enterGender);
+        this.textFields1.add(enterGender);
 
     }
     protected void initEntermobile_no() 
     {
         this.entermobile_no=new JTextField(19);
-        this.textFields.add(entermobile_no);
+        this.textFields1.add(entermobile_no);
         
 
     }
  
     protected void initback() {
         back=new JButton("Back");
+        back.setBounds(600,500,200,40);
         back.setBackground(new java.awt.Color(255, 153, 0));
+        back.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
         back.addActionListener(new BackButtonListener(this,lastPage));
-        buttons.add(back);
+        super.basePanel.add(back);
     }
 
     protected void initSubmit() {
         submit =new JButton("Submit");
         submit.addActionListener(this);
-        submit.setBounds(100,500,300,50);
+        submit.setBounds(300,500,200,40);
         submit.setBackground(Color.green);
         submit.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
-        submit.addMouseListener(new MouseAdapter() {
-            Color color = submit.getForeground();
-            public void mouseEntered(MouseEvent me) {
-               color = submit.getForeground();
-               submit.setBackground(Color.white); // change the color to green when mouse over a button
-            }
-            public void mouseExited(MouseEvent me) {
-            	submit.setBackground(Color.green);
-            }
-         });
         
-        buttons.add(submit);
+        super.basePanel.add(submit);
     }
 
     protected void initTitle()
@@ -195,7 +190,8 @@ public class SignupForm extends BaseFrame
 
         visibleLabels=new ArrayList<>();
         textFields=new ArrayList<>();
-        buttons=new ArrayList<>();
+        visibleLabels1=new ArrayList<>();
+        textFields1=new ArrayList<>();
 
         initComponents();
         positionComponents();
@@ -208,9 +204,12 @@ public class SignupForm extends BaseFrame
 
     void positionComponents()
     {
-        position(this.textFields,500,100,180,30,50);
-        position(this.visibleLabels,330,50,200,40,50);
-        position(this.buttons,330,500,360,30,50);
+    	position(this.visibleLabels,100,200,180,40,70);
+           position(this.textFields,300,200,200,30,70);
+        
+        position(this.visibleLabels1,600,200,150,40,70);
+           position(this.textFields1,760,200,200,30,70);
+        
     }
     void initComponents()
     {
@@ -242,9 +241,10 @@ public class SignupForm extends BaseFrame
         initTitle();
 
         showPassword =new JCheckBox("Show Password");
-        showPassword.setBounds(690,145,200,40);
+        showPassword.setBounds(300,290,200,40);
         showPassword.setForeground(new Color(0,0,153));
         showPassword.addActionListener(this);
+        showPassword.setForeground(new Color(255,255,255));
         basePanel.add(showPassword);
 
 

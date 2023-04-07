@@ -48,7 +48,9 @@ public class ViewBill extends BaseFrame{
        // getBillList();
 
         backButton=new JButton("Back");
-        backButton.setBounds(260,550,80,40);
+        backButton.setBounds(800,590,150,40);
+        backButton.setBackground(new Color(255, 153, 0));
+        backButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
         backButton.addActionListener(new BackButtonListener(this,lastPage));
         basePanel.add(backButton);
 
@@ -87,8 +89,10 @@ public class ViewBill extends BaseFrame{
         //table.setBounds(50,50,700, 500);
         table.setShowHorizontalLines( false );
         table.setRowSelectionAllowed( true );
+        table.setFont(new Font(Font.SANS_SERIF,  Font.PLAIN, 16));
+        table.setForeground(new Color(255,255,255));
         table.setColumnSelectionAllowed( true );
-        table.setShowGrid(true); 
+        table.setShowGrid(false); 
 
 
     }
@@ -99,6 +103,7 @@ public class ViewBill extends BaseFrame{
         scrollPane = new JScrollPane(table);
         scrollPane.setBounds(new Rectangle(0, 0, 600, 500));
         scrollPane.setOpaque(true);
+        scrollPane.setBounds(20,100,700, 500);
         scrollPane.getViewport().setOpaque(false);
         basePanel.add( scrollPane, null );
     }

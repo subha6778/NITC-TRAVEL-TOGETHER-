@@ -146,20 +146,20 @@ public class DatabaseClass {
         try
         {
             String sql= "INSERT into user(username,password,name,email,Age,Address,gender,mobile_no) VALUES (?,?,?,?,?,?,?,?)";
-            System.out.print(userName);
+            //System.out.print(userName);
             PreparedStatement preparedStatement=conn.prepareStatement(sql);
             preparedStatement.setString(1,userName);
             preparedStatement.setString(2,password);
-            System.out.print(password);
+            //System.out.print(password);
             preparedStatement.setString(3,name);
             preparedStatement.setString(4,email);
             preparedStatement.setString(5,Age);
             preparedStatement.setString(6,Address);
-            System.out.print(Address);
+            //System.out.print(Address);
             preparedStatement.setString(7,gender);
-            System.out.print(gender);
+            //System.out.print(gender);
             preparedStatement.setString(8,mobile_no);
-            System.out.print(mobile_no);
+            //System.out.print(mobile_no);
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -171,7 +171,7 @@ public class DatabaseClass {
 
     public boolean updateUser(String currentUserName,String newUserName,String password,String name,String email,String Age,String Address,String gender,String mobile_no)
     {
-    	   System.out.print("nuser: "+currentUserName);
+    	   //System.out.print("nuser: "+currentUserName);
         try {
         	 String sql= "UPDATE user set password=?,name=?,Age=?,Address=?,gender=?,mobile_no=?  WHERE username=?";
 
@@ -190,7 +190,7 @@ public class DatabaseClass {
        
       
             preparedStatement.executeUpdate();
-            System.out.println("done");
+            //System.out.println("done");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -212,7 +212,7 @@ public class DatabaseClass {
             preparedStatement.setString(3,name);
             preparedStatement.setString(4,email);
             //preparedStatement.setString(5,currentUserName);
-            System.out.print("nuser: "+currentUserName);
+            //System.out.print("nuser: "+currentUserName);
             preparedStatement.setString(5,Age);
             preparedStatement.setString(6,Address);
             preparedStatement.setString(7,gender);
@@ -220,7 +220,7 @@ public class DatabaseClass {
             preparedStatement.setString(9,currentUserName);
 
             preparedStatement.executeUpdate();
-            System.out.println("done");
+            //System.out.println("done");
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -292,12 +292,11 @@ public class DatabaseClass {
                 String arrivalTime=resultSet.getString(9);
                 int capacity=resultSet.getInt(10);
                 
-                System.out.print(DeptDate);
-                
-
-
-
-               grouplist.add(new Group(GroupId,GroupName,Source,Destination,DeptTime,DeptDate,arrivalDate,arrivalTime,leaderId,capacity));
+                Date dat= new Date(System.currentTimeMillis());
+                if(date.compareTo(dat) >=0)
+                	grouplist.add(new Group(GroupId,GroupName,Source,Destination,DeptTime,DeptDate,arrivalDate,arrivalTime,leaderId,capacity));
+   
+               
 
             }
             return  grouplist;
@@ -901,7 +900,7 @@ public class DatabaseClass {
 
         //localdate object needed to minus days to date;
         LocalDate localDate=LocalDate.parse(date.toString());
-        localDate=localDate.minusDays(5);
+        //localDate=localDate.minusDays(5);
        // Date date1 = new Date(0);
    
 
@@ -1140,7 +1139,7 @@ public class DatabaseClass {
       for(int i=0;i<n;i++)
       {
                 
-         String temp=myGrpList.get(i).getArrivalDate();
+         String temp=myGrpList.get(i).getDepartureDate();
          LocalDate d1= LocalDate.parse(temp);
          if(d1.compareTo(localDate) >=0) 
          {

@@ -1,4 +1,5 @@
 package GUI;
+import com.github.lgooddatepicker.components.TimePicker;
 import com.toedter.calendar.JDateChooser;
 
 import CommonActionListeners.BackButtonListener;
@@ -10,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
-
+import java.time.*;
 @SuppressWarnings({ "unused", "serial" })
 public class CreateGroup extends BaseFrame  {
 
@@ -18,13 +19,13 @@ public class CreateGroup extends BaseFrame  {
 
     JLabel signName, groupNameLabel,sourceLabel,destinationLabel,dateLabel,depttimeLabel,groupIdLabel,arrivaltimeLabel,arrivaldateLabel,capacityLabel,mealpriceLabel;
 
-    JTextField groupNameTextField,sourceTextField,destinationTextField,dateTextField,depttimeTextField,groupIdTextField,arrivaltimeTextField,capacityTextField,mealpriceTextField;
+    JTextField groupNameTextField, sourceTextField, destinationTextField, dateTextField, groupIdTextField, capacityTextField, mealpriceTextField;
 
     private JComboBox<String> mealCheckbox;
     String[] mealoptions= {"Want meal","Dont want meal"};
     JButton createButton,backButton;
     JDateChooser dateChooser, arrivaldateTextField;
-    //++TimePicker time;
+    TimePicker arrivaltimeTextField, depttimeTextField;
     HashMap<String,String> hm = new HashMap<>();
     
    Person currentPerson;
@@ -50,122 +51,137 @@ public class CreateGroup extends BaseFrame  {
         
         signName=new JLabel("Create New Group");
         signName.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 30));
-        signName.setForeground (Color.orange);
-        signName.setBounds(250,50,300,40);
+        signName.setForeground (new Color(255,255,255));
+        signName.setBounds(100,130,300,40);
         super.basePanel.add(signName);
 
-        groupIdLabel=new JLabel("Group ID");
-        groupIdLabel.setBounds(250,110,150,30);
+        groupIdLabel=new JLabel("Group ID:");
+        groupIdLabel.setBounds(100,200,180,40);
         super.basePanel.add(groupIdLabel);
-        groupIdLabel.setForeground (Color.orange);
+        groupIdLabel.setForeground (new Color(255,255,255));
+        groupIdLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         
         groupIdTextField=new JTextField();
-        groupIdTextField.setBounds(350,110,250,30);
+        groupIdTextField.setBounds(300,200,200,30);
         super.basePanel.add(groupIdTextField);
         
         
-        groupNameLabel=new JLabel("Group Name");
-        groupNameLabel.setBounds(250,150,150,30);
+        groupNameLabel=new JLabel("Group Name:");
+        groupNameLabel.setBounds(600,200,180,40);
         super.basePanel.add(groupNameLabel);
-        groupNameLabel.setForeground (Color.orange);
+        groupNameLabel.setForeground (new Color(255,255,255));
+        groupNameLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         
         groupNameTextField=new JTextField();
-        groupNameTextField.setBounds(350,150,250,30);
+        groupNameTextField.setBounds(760,200,200,30);
         super.basePanel.add(groupNameTextField);
 
 
-        sourceLabel=new JLabel("SOURCE");
-        sourceLabel.setBounds(250,190,150,30);
+        sourceLabel=new JLabel("Source:");
+        sourceLabel.setBounds(100,270,180,40);
         super.basePanel.add(sourceLabel);
-        sourceLabel.setForeground (Color.orange);
+        sourceLabel.setForeground (new Color(255,255,255));
+        sourceLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
 
         sourceTextField=new JTextField();
-        sourceTextField.setBounds(350,190,250,30);
+        sourceTextField.setBounds(300,270,200,30);
         super.basePanel.add(sourceTextField);
 
 
-        destinationLabel=new JLabel("DESTINATION");
-        destinationLabel.setBounds(250,230,150,30);
+        destinationLabel=new JLabel("Destination:");
+        destinationLabel.setBounds(600,270,180,40);
         super.basePanel.add(destinationLabel);
-        destinationLabel.setForeground (Color.orange);
+        destinationLabel.setForeground (new Color(255,255,255));
+        destinationLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
 
         destinationTextField=new JTextField();
-        destinationTextField.setBounds(350,230,250,30);
+        destinationTextField.setBounds(760,270,200,30);
         super.basePanel.add(destinationTextField);
 
 
-        dateLabel=new JLabel("Journey Date");
-        dateLabel.setBounds(250,270,150,30);
+        dateLabel=new JLabel("Journey Date:");
+        dateLabel.setBounds(100,340,180,40);
         super.basePanel.add(dateLabel);
-        dateLabel.setForeground (Color.orange);
-        
-        //dateTextField=new JTextField();
-        //dateTextField.setBounds(350,270,250,30);
-        //super.basePanel.add(dateTextField);
+        dateLabel.setForeground (new Color(255,255,255));
+        dateLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         
         dateChooser = new JDateChooser();
-        dateChooser.setBounds(350,270,250,30);
+        dateChooser.setBounds(300,340,200,30);
         super.basePanel.add(dateChooser);
-
-        depttimeLabel=new JLabel("Departure Time");
-        depttimeLabel.setBounds(250,310,250,30);
-        super.basePanel.add(depttimeLabel);
-        depttimeLabel.setForeground (Color.orange);
-
-        depttimeTextField=new JTextField();
-        depttimeTextField.setBounds(350,310,250,30);
-        super.basePanel.add(depttimeTextField);
         
-        arrivaldateLabel=new JLabel("Arrival Date");
-        arrivaldateLabel.setBounds(250,350,150,30);
+        
+        arrivaldateLabel=new JLabel("Arrival Date:");
+        arrivaldateLabel.setBounds(600,340,180,40);
         super.basePanel.add(arrivaldateLabel);
-        arrivaldateLabel.setForeground (Color.orange);
-        
+        arrivaldateLabel.setForeground (new Color(255,255,255));
+        arrivaldateLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         
         arrivaldateTextField=new JDateChooser();
-        arrivaldateTextField.setBounds(350,350,250,30);
+        arrivaldateTextField.setBounds(760,340,200,30);
         super.basePanel.add(arrivaldateTextField);
+
+        depttimeLabel=new JLabel("Departure Time:");
+        depttimeLabel.setBounds(100, 410,180,40);
+        super.basePanel.add(depttimeLabel);
+        depttimeLabel.setForeground (new Color(255,255,255));
+        depttimeLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+
+        depttimeTextField=new TimePicker();
+        depttimeTextField.setBounds(300,410,200,30);
+        depttimeTextField.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
+        super.basePanel.add(depttimeTextField);
         
-        arrivaltimeLabel=new JLabel("Arrival Time");
-        arrivaltimeLabel.setBounds(250,390,150,30);
+        
+        arrivaltimeLabel=new JLabel("Arrival Time:");
+        arrivaltimeLabel.setBounds(600,410,180,40);
         super.basePanel.add(arrivaltimeLabel);
-        arrivaltimeLabel.setForeground (Color.orange);
+        arrivaltimeLabel.setForeground (new Color(255,255,255));
+        arrivaltimeLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         
-        arrivaltimeTextField=new JTextField();
-        arrivaltimeTextField.setBounds(350,390,250,30);
+        arrivaltimeTextField = new TimePicker();
+        arrivaltimeTextField.setBounds(760,410,200,30);
+        arrivaltimeTextField.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         super.basePanel.add(arrivaltimeTextField);
         
-        capacityLabel=new JLabel("Capacity");
-        capacityLabel.setBounds(250,430,150,30);
+        
+        capacityLabel=new JLabel("Capacity:");
+        capacityLabel.setBounds(100,480,180,40);
         super.basePanel.add(capacityLabel);
-        capacityLabel.setForeground (Color.orange);
+        capacityLabel.setForeground (new Color(255,255,255));
+        capacityLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         
         capacityTextField=new JTextField();
-        capacityTextField.setBounds(350,430,250,30);
+        capacityTextField.setBounds(300,480,200,30);
         super.basePanel.add(capacityTextField);
         
-        mealpriceLabel=new JLabel("Meal Price");
-        mealpriceLabel.setBounds(250,470,150,30);
+        mealpriceLabel=new JLabel("Meal Price:");
+        mealpriceLabel.setBounds(600,480,180,30);
         super.basePanel.add( mealpriceLabel);
-        mealpriceLabel.setForeground (Color.orange);
+        mealpriceLabel.setForeground (new Color(255,255,255));
+        mealpriceLabel.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 20));
         
         mealpriceTextField=new JTextField();
-        mealpriceTextField.setBounds(350,470,250,30);
+        mealpriceTextField.setBounds(760,480,200,30);
         super.basePanel.add( mealpriceTextField);
         
         mealCheckbox=new JComboBox<>(mealoptions);
-        mealCheckbox.setBounds(350,510,250,30);
+        mealCheckbox.setBounds(300,550,200,40);
+        mealCheckbox.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
         basePanel.add(mealCheckbox);
 
 
         createButton =new JButton("Create");
-        createButton.setBounds(350,550,250,40);
+        createButton.setBounds(530,590,200,40);
         createButton.addActionListener(this);
+        createButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
+        createButton.setBackground(Color.green);
         super.basePanel.add( createButton);
 
         backButton =new JButton("Back");
-        backButton.setBounds(350,600,250,40);
+        backButton.setBounds(760,590,200,40);
         backButton.addActionListener(new BackButtonListener(this,lastPage));
+        backButton.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, 16));
+        backButton.setBackground(new java.awt.Color(255, 153, 0));
         super.basePanel.add(backButton);
 
 
@@ -193,7 +209,7 @@ public class CreateGroup extends BaseFrame  {
           String dt = split[2]+"-"+hm.get(split[1])+"-"+split[0];
           
           
-          String dtTime=depttimeTextField.getText();
+          String dtTime=depttimeTextField.getText().toString();
           
           
           String GroupId=groupIdTextField.getText();
@@ -204,7 +220,7 @@ public class CreateGroup extends BaseFrame  {
           String split1 [] = t1.split("-");
           String arrivalDate=split1[2]+"-"+hm.get(split1[1])+"-"+split1[0];
           
-          String arrivalTime=arrivaltimeTextField.getText();
+          String arrivalTime=arrivaltimeTextField.getText().toString();
           int capacity=0;
           int mealprice=0;
           String MealOptions=mealCheckbox.getItemAt(mealCheckbox.getSelectedIndex());
