@@ -310,6 +310,56 @@ public class DatabaseClass {
         
         
     }
+    
+    public List<Group> getAllGroups(String userId)
+    {
+        List<Group> grouplist=new ArrayList<>();
+        List<String> groupIdlist=new ArrayList<>();
+        List<String> groupNamelist=new ArrayList<>();
+
+        try {
+            String sql="SELECT * from group5";
+
+            PreparedStatement preparedStatement=conn.prepareStatement(sql);
+
+            ResultSet resultSet=preparedStatement.executeQuery();
+
+            while (resultSet.next())
+            {
+                String GroupId=resultSet.getString(1);
+                String GroupName=resultSet.getString(2);
+                String Source= resultSet.getString(3);
+                String Destination=resultSet.getString(4);
+                String DeptTime=resultSet.getString(5);
+                Date date=resultSet.getDate(6);
+                String temp=date.toString();
+                String DeptDate=temp.substring(0, 10);
+                String leaderId=resultSet.getString(7);
+                String arrivalDate=resultSet.getString(8);
+                String arrivalTime=resultSet.getString(9);
+                int capacity=resultSet.getInt(10);
+                
+                
+                
+                	grouplist.add(new Group(GroupId,GroupName,Source,Destination,DeptTime,DeptDate,arrivalDate,arrivalTime,leaderId,capacity));
+   
+               
+
+            }
+            return  grouplist;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+       
+        
+        
+        
+    }
+
+    
+    
     public List<Group> getMyGroup(Person currentPerson)
     {
     	String userId=currentPerson.getUserName();
@@ -893,13 +943,13 @@ public class DatabaseClass {
 
   public List<Group> getDueGroup()
     {
-        List<Group>avlGrpList= getAvailableGroup("ok");
+        List<Group>avlGrpList= getAllGroups("ok");
         int n=avlGrpList.size();
          List<Group> Duegrouplist=new ArrayList<>();
-         Date date= new Date(System.currentTimeMillis());
+         String date= new Date(System.currentTimeMillis()).toString();
 
         //localdate object needed to minus days to date;
-        LocalDate localDate=LocalDate.parse(date.toString());
+        //LocalDate localDate=LocalDate.parse(date.toString());
         //localDate=localDate.minusDays(5);
        // Date date1 = new Date(0);
    
@@ -910,7 +960,7 @@ public class DatabaseClass {
                   
            String temp=avlGrpList.get(i).getArrivalDate();
            LocalDate d1= LocalDate.parse(temp);
-           if(d1.compareTo(localDate) <=0) 
+           if(temp.compareTo(date) <=0) 
            {
         	   Duegrouplist.add(avlGrpList.get(i));
         	   
