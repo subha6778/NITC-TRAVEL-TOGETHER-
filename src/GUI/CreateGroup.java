@@ -224,6 +224,42 @@ public class CreateGroup extends BaseFrame  {
           int capacity=0;
           int mealprice=0;
           String MealOptions=mealCheckbox.getItemAt(mealCheckbox.getSelectedIndex());
+          
+          
+          
+          
+          if(split[2].compareTo(split1[2])>0)
+          {
+        	  JOptionPane.showMessageDialog(basePanel, "Invalid Date");
+        	  return;
+          }
+          if(split[2].equals(split1[2]))
+          {
+        	  if(hm.get(split[1]).compareTo(hm.get(split1[1]))>0)
+        	  {
+        		  JOptionPane.showMessageDialog(basePanel, "Invalid Date");
+            	  return;
+        	  }
+        	  if(hm.get(split[1]).compareTo(hm.get(split1[1]))==0)
+        	  {
+        		  if(split[0].compareTo(split1[0])>0)
+        		  {
+        			  JOptionPane.showMessageDialog(basePanel, "Invalid Date");
+                	  return;
+        		  }
+        	  }
+          }
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
 
           try {
  
@@ -254,7 +290,8 @@ public class CreateGroup extends BaseFrame  {
               JOptionPane.showMessageDialog(basePanel,"Price must a positive integer");
               return;
           }
-
+          
+          
      
 
           if(DatabaseClass.getDataAccessObject().createGroup(GroupId,groupName,source,destination,dt,dtTime,arrivalDate,arrivalTime,currentPersonUserId,capacity,mealprice))
