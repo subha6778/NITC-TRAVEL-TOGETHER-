@@ -25,8 +25,8 @@ public class DatabaseClass {
             Class.forName("com.mysql.jdbc.Driver");
 
             //connect to database
-            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/student_db",
-                    "root","8858125365");
+            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb",
+                    "ami","m210707ca@123");
 
         } catch (SQLException ex)
         {
@@ -288,13 +288,24 @@ public class DatabaseClass {
                 String temp=date.toString();
                 String DeptDate=temp.substring(0, 10);
                 String leaderId=resultSet.getString(7);
-                String arrivalDate=resultSet.getString(8);
+                Date arriveDate=resultSet.getDate(8);
+                
+                String temp1=arriveDate.toString();
+                String arrivalDate=temp1.substring(0, 10);
                 String arrivalTime=resultSet.getString(9);
                 int capacity=resultSet.getInt(10);
                 
-                Date dat= new Date(System.currentTimeMillis());
-                if(date.compareTo(dat) >=0)
+                Date date1= new Date(System.currentTimeMillis());
+                LocalDate localDate=LocalDate.parse(date1.toString());
+                
+                
+             
+                LocalDate d1= LocalDate.parse(arrivalDate);
+                if(d1.compareTo(localDate) >=0) 
+                {
+                
                 	grouplist.add(new Group(GroupId,GroupName,Source,Destination,DeptTime,DeptDate,arrivalDate,arrivalTime,leaderId,capacity));
+                }
    
                
 
@@ -1189,7 +1200,7 @@ public class DatabaseClass {
       for(int i=0;i<n;i++)
       {
                 
-         String temp=myGrpList.get(i).getDepartureDate();
+         String temp=myGrpList.get(i).getArrivalDate();
          LocalDate d1= LocalDate.parse(temp);
          if(d1.compareTo(localDate) >=0) 
          {

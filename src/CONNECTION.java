@@ -10,8 +10,8 @@ public class CONNECTION {
 	            // below two lines are used for connectivity.
 	            Class.forName("com.mysql.cj.jdbc.Driver");
 	            connection = DriverManager.getConnection(
-		                "jdbc:mysql://localhost:3306/student_db",
-		                "root","8858125365");
+		                "jdbc:mysql://localhost:3306/studentdb",
+		                "ami","m210707ca@123");
 	            Statement statement;
 	            statement = connection.createStatement();
 	            ResultSet resultSet;

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-18">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-18">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/praka/Downloads/Software/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar"/>
-	<classpathentry kind="lib" path="C:/Users/praka/Downloads/Software/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/praka/Downloads/Software/LGoodDatePicker-10.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SUBHAJIT MAJUMDAR/Desktop/sem3/mysql-connector-j-8.0.31.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SUBHAJIT MAJUMDAR/Desktop/SEPROJECT/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SUBHAJIT MAJUMDAR/Desktop/SEPROJECT/LGoodDatePicker-10.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

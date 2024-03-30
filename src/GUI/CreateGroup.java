@@ -205,8 +205,12 @@ public class CreateGroup extends BaseFrame  {
           // Starting Date
           Date date1 = dateChooser.getDate();
           String t = DateFormat.getDateInstance().format(date1);
-          String split []=t.split("-");
-          String dt = split[2]+"-"+hm.get(split[1])+"-"+split[0];
+          String split0 []=t.split(",");
+          String split3[]= split0[0].split("\\s+");
+          String dt = split0[1].trim()+"-"+hm.get(split3[0].trim())+"-"+split3[1].trim();
+          System.out.println(split3[0]+"  "+split3[1]);
+ 
+          System.out.print("YEAR:"+dt);
           
           
           String dtTime=depttimeTextField.getText().toString();
@@ -217,8 +221,9 @@ public class CreateGroup extends BaseFrame  {
           // Arrival Date 
           Date date2 = arrivaldateTextField.getDate();
           String t1 = DateFormat.getDateInstance().format(date2);
-          String split1 [] = t1.split("-");
-          String arrivalDate=split1[2]+"-"+hm.get(split1[1])+"-"+split1[0];
+          String split1 [] = t1.split(",");
+          String split2[]= split1[0].split("\\s+");
+          String arrivalDate=split1[1].trim()+"-"+hm.get(split2[0].trim())+"-"+split2[1].trim();
           
           String arrivalTime=arrivaltimeTextField.getText().toString();
           int capacity=0;
@@ -227,28 +232,29 @@ public class CreateGroup extends BaseFrame  {
           
           
           
-          
-          if(split[2].compareTo(split1[2])>0)
+          /*
+          if(split[1].compareTo(split1[1])>0)
           {
         	  JOptionPane.showMessageDialog(basePanel, "Invalid Date");
         	  return;
           }
-          if(split[2].equals(split1[2]))
+          if(split[1].equals(split1[1]))
           {
-        	  if(hm.get(split[1]).compareTo(hm.get(split1[1]))>0)
+        	  if(hm.get(split3[1]).compareTo(hm.get(split2[1]))>0)
         	  {
         		  JOptionPane.showMessageDialog(basePanel, "Invalid Date");
             	  return;
         	  }
-        	  if(hm.get(split[1]).compareTo(hm.get(split1[1]))==0)
+        	  if(hm.get(split3[1]).compareTo(hm.get(split2[1]))==0)
         	  {
-        		  if(split[0].compareTo(split1[0])>0)
+        		  if(split3[0].compareTo(split2[0])>0)
         		  {
         			  JOptionPane.showMessageDialog(basePanel, "Invalid Date");
                 	  return;
         		  }
         	  }
           }
+          (*/
           
           
           
